@@ -1,0 +1,49 @@
+const displayArea = document.querySelector('.display-area'); 
+const displayText = document.querySelector('.display-text')
+const scores = document.querySelectorAll('.score'); 
+const highestScore = document.querySelector('.highest-score'); 
+
+let scoreHistory = []; 
+
+const MAX_TIME = 10000;
+const MIN_TIME = 3000; 
+
+let timeWhenClicked = 0; 
+let waitingForClicked = false; 
+
+function play(){
+    const timeChanged = Math.floor(Math.random() * (MAX_TIME - MIN_TIME) + MIN_TIME);
+
+    displayArea.style.backgroundColor = null; 
+    displayText.textContent = ""; 
+
+    setTimeout(() => {
+        timeWhenClicked = Date.now(); 
+        displayArea.style.backgroundColor = "green"; 
+        waitingForClicked = true;
+    }, timeChanged);
+}
+
+function addScoreAndUpdateHighest(score){
+    scoreHistory.unshift(score);
+
+    for (let i = 0; i < Math.min(scoreHistory.length, 5); i++){
+        const score = scoreHistory[i];
+
+        scores[i].textContent = `${score} ms`; 
+    }
+
+    highestScore.textContent = `${Math.min(...scoreHistory)} ms`;
+}
+
+displayArea.addEventListener('click', () => {
+    if (waitingForClicked){
+        const score = Date.now() - timeWhenClicked;
+        waitingForClicked = false;
+        displayText.textContent = `Your time was ${score} ms!` 
+        addScoreAndUpdateHighest(score);
+        console.log(scoreHistory)
+    } else {
+        play(); 
+    }
+}); 

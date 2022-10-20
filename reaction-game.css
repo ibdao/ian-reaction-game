@@ -1,0 +1,51 @@
+#container {
+    display: flex;
+    margin: auto;
+    width: 40%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.display-area{
+    flex-grow: 1;
+    max-width: 400px;
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
+}
+
+.display-text{
+    padding: 24px;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+    flex-shrink: 0;
+  }
+
+.score {
+    flex-grow: 1;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 16px;
+}
+  
+.score:nth-child(odd) {
+    background: #eeeeee;
+}
+
+.highest-score-board{
+    padding: 3rem;
+    text-align: center;
+}
