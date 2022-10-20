@@ -49,3 +49,13 @@
     padding: 3rem;
     text-align: center;
 }
+
+#title {
+    margin: auto;
+    width: 40%;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 48px;
+    padding-bottom: 2rem;
+}

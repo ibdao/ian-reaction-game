@@ -40,9 +40,10 @@ displayArea.addEventListener('click', () => {
     if (waitingForClicked){
         const score = Date.now() - timeWhenClicked;
         waitingForClicked = false;
-        displayText.textContent = `Your time was ${score} ms!` 
+
+        displayText.textContent = `Your time was ${score} ms! Click here to play again`
+
         addScoreAndUpdateHighest(score);
-        console.log(scoreHistory)
     } else {
         play(); 
     }
